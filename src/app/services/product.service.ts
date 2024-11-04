@@ -23,7 +23,17 @@ export class ProductService {
   }
 }
 
-interface GetResponse {
+getProductCategories() {
+  throw new Error('Method not implemented.');
+}
+
+interface GetResponseProducts {
+  _embedded: {
+    products: Product[];
+  }
+}
+
+interface GetResponseProductCategory {
   _embedded: {
     products: Product[];
   }
