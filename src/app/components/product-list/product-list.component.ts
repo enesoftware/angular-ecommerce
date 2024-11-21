@@ -23,6 +23,7 @@ export class ProductListComponent implements OnInit {
   previousKeyword: string = "";
 
   constructor(private productService: ProductService,
+    private cartService: CartService,
     private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -43,7 +44,6 @@ export class ProductListComponent implements OnInit {
     }
 
   }
-
 
   handleSearchProducts() {
 
@@ -117,5 +117,17 @@ export class ProductListComponent implements OnInit {
       this.theTotalElements = data.page.totalElements;
     };
   }
+
+  addToCart(theProduct: Product) {
+
+    console.log(`Adding to cart: ${theProduct.name}, ${theProduct.unitPrice}`);
+
+    // TODO ... do the real work
+    const theCartItem = new CartItem(theProduct.id!, theProduct.name!, theProduct.imageUrl!, theProduct.unitPrice!);
+
+    this.cartService.addToCart(theCartItem);
+  }
+
 }
+
 
