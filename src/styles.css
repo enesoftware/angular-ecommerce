@@ -4,7 +4,7 @@
  * ----------------------------
  */
 
- * {
+* {
     margin: 0;
     padding: 0;
     -webkit-box-sizing: border-box;
@@ -572,7 +572,7 @@ input.au-input.au-input-xl {
 }
 
 .product-box {
-    margin-bottom: 60px
+    margin-bottom: 60px;
 }
 
 .price {
@@ -598,7 +598,15 @@ input.au-input.au-input-xl {
 }
 
 .product-box a {
+    color: black;
     text-decoration: none;
+    display: grid;
+    /* Grid düzenini kullan */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    /* Esnek kolonlar */
+    gap: 20px;
+    /* Ürünler arasında boşluk */
+
 }
 
 
@@ -782,7 +790,7 @@ table.table.table-bordered th {
 .price {
     margin: 15px 0 0;
     font-weight: 800;
-    color: #0da8e4
+    color: #0da8e4;
 }
 
 .detail-section {
