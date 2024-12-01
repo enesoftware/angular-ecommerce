@@ -12,11 +12,11 @@ export class CheckoutComponent implements OnInit {
 
   totalPrice: number = 0;
   totalQuantity: number = 0;
-  
+
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    
+
     this.checkoutFormGroup = this.formBuilder.group({
       customer: this.formBuilder.group({
         firstName: [''],
@@ -48,21 +48,21 @@ export class CheckoutComponent implements OnInit {
     });
   }
 
-  copyShippingAddressToBillingAddress(event) {
-
-    if (event.target.checked) {
-      this.checkoutFormGroup.controls.billingAddress
-            .setValue(this.checkoutFormGroup.controls.shippingAddress.value);
+  copyShippingAddressToBillingAddress(event: Event) {
+    if ((event.target as HTMLInputElement).checked) {
+      this.checkoutFormGroup.controls['billingAddress']
+        .setValue(this.checkoutFormGroup.controls['shippingAddress'].value);
+    } else {
+      this.checkoutFormGroup.controls['billingAddress'].reset();
     }
-    else {
-      this.checkoutFormGroup.controls.billingAddress.reset();
-    }
-    
   }
 
   onSubmit() {
     console.log("Handling the submit button");
-    console.log(this.checkoutFormGroup.get('customer').value);
-    console.log("The email address is " + this.checkoutFormGroup.get('customer').value.email);
+    const customer = this.checkoutFormGroup.get('customer')?.value;
+    console.log(customer);
+
+    const email = this.checkoutFormGroup.get('customer')?.value?.email;
+    console.log("The email address is " + email);
   }
 }
