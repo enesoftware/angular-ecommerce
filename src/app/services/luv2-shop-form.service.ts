@@ -38,5 +38,4 @@ export class Luv2ShopFormService {
 
     return of(data);
   }
-
 }
